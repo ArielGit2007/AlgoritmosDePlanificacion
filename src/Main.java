@@ -27,7 +27,8 @@ public class Main {
             System.out.println("=================================");
             System.out.println("1. Ejecutar simulación FIFO");
             System.out.println("2. Ejecutar simulación SJF");
-            System.out.println("3. Salir");
+            System.out.println("3. Ejecutar simulación Priority");
+            System.out.println("4. Salir");
             System.out.print("Elija una opción: ");
             int opcion = teclado.nextInt();
 
@@ -37,7 +38,7 @@ public class Main {
                     FIFO simuladorFIFO = new FIFO();
                     // Clonamos la lista para que FIFO no altere los datos originales
                     for (Proceso p : procesosCompartidos) {
-                        simuladorFIFO.tablaIngreso.add(new Proceso(p.nombre, p.rafaga, p.tiempoLlegada));
+                        simuladorFIFO.tablaIngreso.add(new Proceso(p.nombre, p.rafaga, p.tiempoLlegada, p.prioridad));
                     }
                     simuladorFIFO.prepararColaPlanificacion();
                     simuladorFIFO.ejecutarFIFO();
@@ -48,12 +49,19 @@ public class Main {
                     SJF simuladorSJF = new SJF();
                     // Clonamos la lista para que SJF no altere los datos originales
                     for (Proceso p : procesosCompartidos) {
-                        simuladorSJF.tablaIngreso.add(new Proceso(p.nombre, p.rafaga, p.tiempoLlegada));
+                        simuladorSJF.tablaIngreso.add(new Proceso(p.nombre, p.rafaga, p.tiempoLlegada, p.prioridad));
                     }
                     simuladorSJF.ejecutarSJF();
                     break;
-
                 case 3:
+                    System.out.println("\n>>> EJECUTANDO PRIORITY <<<");
+                    Priority simuladorPriority = new Priority();
+                    for(Proceso p : procesosCompartidos) {
+                        simuladorPriority.tablaIngreso.add(new Proceso(p.nombre, p.rafaga, p.tiempoLlegada, p.prioridad));
+                    }
+                    simuladorPriority.ejecutarPriority();
+                    break;
+                case 4:
                     salir = true;
                     System.out.println("Programa finalizado.");
                     break;

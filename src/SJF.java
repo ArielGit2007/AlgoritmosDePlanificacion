@@ -3,20 +3,6 @@ import java.util.Scanner;
 
 public class SJF {
     public ArrayList<Proceso> tablaIngreso = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
-
-    public void IngresarProceso() {
-        Proceso p = new Proceso();
-        System.out.println("Ingrese el nombre del proceso");
-        p.nombre = scanner.nextLine();
-        System.out.println("Ingrese la rafaga");
-        p.rafaga = scanner.nextInt();
-        System.out.println("Ingrese el tiempo de llegada");
-        p.tiempoLlegada = scanner.nextInt();
-        scanner.nextLine();
-
-        tablaIngreso.add(p);
-    }
 
     public void ejecutarSJF() {
         int tiempoActual = 0;

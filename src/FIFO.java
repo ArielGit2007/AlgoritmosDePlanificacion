@@ -14,6 +14,8 @@ public class FIFO {
         p.rafaga = scanner.nextInt();
         System.out.println("Ingrese el tiempo de llegada");
         p.tiempoLlegada = scanner.nextInt();
+        System.out.println("Ingrese la prioridad");
+        p.prioridad = scanner.nextInt();
         scanner.nextLine();
 
         tablaIngreso.add(p);
