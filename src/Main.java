@@ -28,7 +28,8 @@ public class Main {
             System.out.println("1. Ejecutar simulación FIFO");
             System.out.println("2. Ejecutar simulación SJF");
             System.out.println("3. Ejecutar simulación Priority");
-            System.out.println("4. Salir");
+            System.out.println("4. Ejecutar simulación Round Robin");
+            System.out.println("5. Salir");
             System.out.print("Elija una opción: ");
             int opcion = teclado.nextInt();
 
@@ -62,6 +63,15 @@ public class Main {
                     simuladorPriority.ejecutarPriority();
                     break;
                 case 4:
+                    System.out.println("\n>>> EJECUTANDO ROUND ROBIN <<<");
+                    RoundRobin simuladorRoundRobin = new RoundRobin(3);
+                    for (Proceso p : procesosCompartidos) {
+                        simuladorRoundRobin.fifo.tablaIngreso.add(
+                                new Proceso(p.nombre, p.rafaga, p.tiempoLlegada, p.prioridad));
+                    }
+                    simuladorRoundRobin.ejecutarRoundRobin();
+                    break;
+                case 5:
                     salir = true;
                     System.out.println("Programa finalizado.");
                     break;
@@ -73,4 +83,3 @@ public class Main {
         teclado.close();
     }
 }
-

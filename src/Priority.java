@@ -47,7 +47,7 @@ public void ejecutarPriority() {
     System.out.println("\nTIEMPO DE RETORNO");
     for (String dr : detallesRetorno) System.out.println(dr);
 
-    System.out.println("\n\nTiempo promedio de espera: " + (sumaEspera / totalProcesos));
-    System.out.println("Tiempo promedio de retorno: " + (sumaRetorno / totalProcesos));
+    System.out.println("\n\nTiempo promedio de espera: " + (sumaEspera / totalProcesos)+" ut");
+    System.out.println("Tiempo promedio de retorno: " + (sumaRetorno / totalProcesos)+" ut");
 }
 }
